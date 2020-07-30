@@ -1,0 +1,109 @@
+{% extends "html_files/main.html" %}
+
+
+{% load static %}
+{% load embed_video_tags %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa {
+  padding: 20px;
+  font-size: 20px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 8px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+</style>
+
+<div class="container">
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4">{{post_view.news_title}}</h1>
+
+        <!-- Author -->
+        <p class="lead">
+          by
+          <a href="#">{{post_view.news_author}}</a>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>{{post_view.news_updated_on}}
+            <a href="https://www.facebook.com/thebawabilat" class="fa fa-facebook"></a>
+            <a href="https:// www.twitter.com/thebawabilat" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-google"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+            <a href="https://www.youtube.com/channel/UCvVxR9BzDXIE66_LsFF35iA" class="fa fa-youtube"></a>
+            <a href="https://www.instagram.com/thebawabilat" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-pinterest"></a>
+        </p>
+
+        <hr>
+
+        <!-- Preview Image -->
+        <div class="embed-responsive embed-responsive-16by9">
+            {% video post_view.videos '100x100' %}
+        </div>
+        <hr>
+        <!-- Post Content -->
+        <p class="lead">
+        <p></p>{{post_view.news_content}}
+        </p>
+        <hr>
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+{% endblock %}
+
+
+ 
+	

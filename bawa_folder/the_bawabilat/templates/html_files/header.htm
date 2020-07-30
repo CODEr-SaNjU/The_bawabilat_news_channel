@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>The Bawabilat</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<!-- {% load static %} -->
+	<!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:400,600,700" rel="stylesheet">
+	
+	<!-- Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="breaking-news-ticker.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		
+    <link href="/static/common/styles.css" rel="stylesheet">
+    <link href="/static/common/header.css" rel="stylesheet">
+</head>
+<style>
+    
+    .news {
+        width: 160px
+    }
+    
+    .news-scroll a {
+        text-decoration: none
+    }
+    
+    .dot {
+        height: 6px;
+        width: 6px;
+        margin-left: 3px;
+        margin-right: 3px;
+        margin-top: 2px !important;
+        background-color: rgb(207, 23, 23);
+        border-radius: 50%;
+        display: inline-block
+    }
+</style>
+<body>
+    {% load embed_video_tags %}
+	<header>
+        <div class="bg-191">
+			<div class="container">	
+				<div class="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
+				<h1>
+                    banner here 
+                </h1>
+					<!-- <ul class="float-left float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10">
+						<li><a class="pl-0 pl-sm-10" href="#">About</a></li>
+						<li><a href="#">Advertise</a></li>
+						<li><a href="#">Submit Press Release</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+					<ul class="float-right float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-5">
+						<li><a class="pl-0 pl-sm-10" href="#"><i class="ion-social-facebook"></i></a></li>
+						<li><a href="#"><i class="ion-social-twitter"></i></a></li>
+						<li><a href="#"><i class="ion-social-google"></i></a></li>
+						<li><a href="#"><i class="ion-social-instagram"></i></a></li>
+						<li><a href="#"><i class="ion-social-bitcoin"></i></a></li>
+					</ul> -->
+					
+				</div><!-- top-menu -->
+			</div><!-- container -->
+		</div><!-- bg-191 -->
+		
+		<div class="container">
+            <a class="logo" href="#"><img src="/static/images/bawabilat png 2.png" alt="Logo"></a>
+
+            <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
+            <ul class="main-menu" id="main-menu">
+                <li><a href="{%url 'home'%}">HOME</a></li>
+                <li><a href="{%url 'video'%}">VIDEOS</a></li>
+                <li class="drop-down"><a href="#">NEWS<i class="ion-arrow-down-b"></i></a>
+                    <ul class="drop-down-menu drop-down-inner">
+                        <li><a href="{%url 'technical_news'%}">TECHNICAL NEWS</a></li>
+                        <li><a href="{%url 'entertainment_news'%}">ENTERTAINMENT NEWS</a></li>
+                        <li><a href="{%url 'political_news'%}">POLITICAL NEWS</a></li>
+                        <li><a href="{%url 'sports_news'%}">SPORTS NEWS</a></li>
+                    </ul>
+                </li>
+                <li><a href="{%url 'events'%}">EVENTS</a></li>
+                <li><a href="{%url 'world_wide'%}">World Wide</a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div><!-- container -->
+<hr>
+        <div class="container mt-3" style="background-color: rgb(223, 201, 193);">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-between align-items-center breaking-news bg-danger">
+                        <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-4 text-white px-3 news"><span class="d-flex align-items-center">&nbsp;क्या चल रहा है ?</span></div>
+                        <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                        {% for i in blogdata %}
+                            {{forloop.counter}}<span class="dot"></span> <a href="/{{i.news_slug}}"> {{i.news_title}}</a> <span class="">||</span>&nbsp;
+
+                        {% endfor %}
+                        </marquee>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <hr>
+{% block content %}
+  
+{% endblock %}
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.7/js/tether.min.js" integrity="sha512-X7kCKQJMwapt5FCOl2+ilyuHJp+6ISxFTVrx+nkrhgplZozodT9taV2GuGHxBgKKpOJZ4je77OuPooJg9FJLvw==" crossorigin="anonymous"></script>
+<script src="/static/common/scripts.js"></script>
+<script src="/static/plugin-frameworks/bootstrap.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js" integrity="sha512-BO7V2K9oqbTnqEK9j/RiBzft8mcyj5XsfDgCmc0yymJQcBl4qhuR+TVgPL2pilyEqcMJxc8t0tp/lXGu9I0loA==" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
