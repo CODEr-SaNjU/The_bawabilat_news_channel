@@ -11,5 +11,6 @@ urlpatterns = [
     path('events/',views.events,name="events"),
     path('world-wide/',views.world_wide,name="world_wide"),
     path('video/',views.video,name="video"),
-    path('<str:news_slug>/',views.newsdatafullview,name="newsdatafullview")
+    path('<str:news_slug>/',views.newsdatafullview,name="newsdatafullview"),
+    path('<str:blog_slug>/',views.homefullview,name="homefullview")
 ]
