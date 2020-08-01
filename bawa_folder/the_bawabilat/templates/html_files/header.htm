@@ -48,37 +48,19 @@
     {% load embed_video_tags %}
 	<header>
         <div class="bg-191">
-			<div class="container">	
 				<div class="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
-				<h1>
-                    banner here 
-                </h1>
-					<!-- <ul class="float-left float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10">
-						<li><a class="pl-0 pl-sm-10" href="#">About</a></li>
-						<li><a href="#">Advertise</a></li>
-						<li><a href="#">Submit Press Release</a></li>
-						<li><a href="#">Contact</a></li>
-					</ul>
-					<ul class="float-right float-sm-none list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-5">
-						<li><a class="pl-0 pl-sm-10" href="#"><i class="ion-social-facebook"></i></a></li>
-						<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-						<li><a href="#"><i class="ion-social-google"></i></a></li>
-						<li><a href="#"><i class="ion-social-instagram"></i></a></li>
-						<li><a href="#"><i class="ion-social-bitcoin"></i></a></li>
-					</ul> -->
-					
+                    <img src="{% static "images/header1.gif" %}" alt="The Bawabilat"/>
 				</div><!-- top-menu -->
-			</div><!-- container -->
         </div><!-- bg-191 -->
         <hr>
         <div class="container mt-3" style="background-color: rgb(223, 201, 193);">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="d-flex justify-content-between align-items-center breaking-news bg-danger">
-                        <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-4 text-white px-3 news"><span class="d-flex align-items-center">&nbsp;क्या चल रहा है ?</span></div>
+                    <div class="d-flex justify-content-between align-items-center breaking-news" style="background-color: #ff0;">
+                        <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center  py-4 text-white px-3 news" style="background-color: #ff0;"><span class="d-flex align-items-center">&nbsp;क्या चल रहा है ?</span></div>
                         <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
                         {% for i in last_five %}
-                            {{forloop.counter}}<span class="dot"></span> <a href="News/{{i.news_slug}}"> {{i.Description}}</a> <span class="">||</span>&nbsp;
+                            {{forloop.counter}}<span class="dot"></span> <a href="/Current-News/{{i.news_slug}}"> {{i.Description}}</a> <span class="">||</span>&nbsp;
 
                         {% endfor %}
                         </marquee>
@@ -104,6 +86,7 @@
                 </li>
                 <li><a href="{%url 'events'%}">EVENTS</a></li>
                 <li><a href="{%url 'world_wide'%}">World Wide</a></li>
+                <li><a href="{%url 'contact_us'%}">Contact us</a></li>
             </ul>
             <div class="clearfix"></div>
         </div><!-- container -->

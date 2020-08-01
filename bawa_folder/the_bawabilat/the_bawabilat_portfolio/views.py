@@ -60,6 +60,8 @@ def header(request):
     return render(request,'html_files/header.htm',{'last_five':last_five,'blogdata':blogdata})
 
 
+def contact_us(request):
+    return render(request,'html_files/contact_us.htm')
 
 def footer(request):
     newsdata = Newsupdate.objects.all()
