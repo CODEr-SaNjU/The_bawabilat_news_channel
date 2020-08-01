@@ -4,8 +4,10 @@ from .models import Newsupdate ,Post
 
 def home(request):
     newsdata = Newsupdate.objects.all()
-    blogdata = Post.objects.all()
-    last_five = Newsupdate.objects.filter().order_by('-id')[:5]
+    blog_data = Post.objects.all()
+    blogdata = Post.objects.filter().order_by('-id')[:5]
+    blogdata_in_ascending_order = reversed(blogdata)
+    last_five = Newsupdate.objects.filter().order_by('-id')[:4]
     last_five_in_ascending_order = reversed(last_five)
     return render(request,'html_files/index.html',{'last_five':last_five,'blogdata':blogdata})
 
@@ -13,6 +15,11 @@ def homefullview(request,blog_slug):
     data_view = Newsupdate.objects.filter(blog_slug=blog_slug).first()
     print(data_view)
     return render(request,'html_files/home_view.htm',{"data_view":data_view})
+
+
+def newsdatafullview(request,news_slug):
+    post_view = Post.objects.filter(news_slug=news_slug).first()
+    return render(request,'html_files/News_full.htm',{"post_view":post_view})
 
 def technical_news(request):
     technical_news = Newsupdate.objects.filter(blogtype__blogtype__contains="tech")
@@ -45,9 +52,6 @@ def video(request):
     blog_video = Post.objects.all()
     return render(request,'html_files/video.htm',{"video":video,"blog_video":blog_video})
 
-def newsdatafullview(request,news_slug):
-    post_view = Post.objects.filter(news_slug=news_slug).first()
-    return render(request,'html_files/News_full.htm',{"post_view":post_view})
 
 def header(request):
     newsdata = Newsupdate.objects.all()

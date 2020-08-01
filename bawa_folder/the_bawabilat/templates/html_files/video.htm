@@ -19,8 +19,8 @@
 					<li class="color-lite-black">By <a href="#" class="color-black"><b> {{i.Username}}</b></a>
 					<li><i class="color-primary mr-5 font-10 ion-ios-stopwatch-outline"></i><b>{{i.pub_date}}</b></li>
 				</ul>
-				<p>{{i.Description|safe|truncatewords:"40"|linebreaks }}
-					<a class="dplay-block btn-brdr-dark mt-10 mb-md-30" href="/{{i.blog_slug}}"><b>READ MORE &rarr;</b></a>
+				<p>{{i.blog_content|safe|truncatewords:"10"|linebreaks }}
+					<a class="dplay-block btn-brdr-primary mt-10 mb-md-30" href="/{{i.blog_slug}}"><b>READ MORE &rarr;</b></a>
 				</p>
 				<br>
 			</div><!-- col-sm-6 -->
@@ -39,8 +39,8 @@
 					<li class="color-lite-black">By <a href="#" class="color-black"><b> {{i.news_author}}</b></a>
 					<li><i class="color-primary mr-5 font-10 ion-ios-stopwatch-outline"></i><b>{{i.created_on}}</b></li>
 				</ul>
-				<p>{{i.news_content|safe|truncatewords:"50"|linebreaks }}
-					<a class="dplay-block btn-brdr-dark mt-10 mb-md-30" href="/{{i.news_slug}}"><b>READ MORE &rarr;</b></a>
+				<p>{{i.news_content|safe|truncatewords:"6"|linebreaks }}
+					<a class="dplay-block btn-brdr-primary mt-10 mb-md-30" href="Trending-News/{{i.news_slug}}"><b>READ MORE &rarr;</b></a>
 				</p>
 				<br>
 			</div><!-- col-sm-6 -->

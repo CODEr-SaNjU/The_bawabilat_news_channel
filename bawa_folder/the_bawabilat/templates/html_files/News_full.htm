@@ -30,15 +30,7 @@
   color: white;
 }
 
-.fa-google {
-  background: #dd4b39;
-  color: white;
-}
 
-.fa-linkedin {
-  background: #007bb5;
-  color: white;
-}
 
 .fa-youtube {
   background: #bb0000;
@@ -50,8 +42,8 @@
   color: white;
 }
 
-.fa-pinterest {
-  background: #cb2027;
+.fa-whatsapp {
+  background: #70e958;
   color: white;
 }
 </style>
@@ -67,6 +59,7 @@
         <h1 class="mt-4">{{post_view.news_title}}</h1>
 
         <!-- Author -->
+        <hr>
         <p class="lead">
           by
           <a href="#">{{post_view.news_author}}</a>
@@ -78,25 +71,22 @@
         <p>{{post_view.news_updated_on}}
             <a href="https://www.facebook.com/thebawabilat" class="fa fa-facebook"></a>
             <a href="https:// www.twitter.com/thebawabilat" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-google"></a>
-            <a href="#" class="fa fa-linkedin"></a>
+            <a href="#" class="fa fa-whatsapp"></a>
             <a href="https://www.youtube.com/channel/UCvVxR9BzDXIE66_LsFF35iA" class="fa fa-youtube"></a>
             <a href="https://www.instagram.com/thebawabilat" class="fa fa-instagram"></a>
-            <a href="#" class="fa fa-pinterest"></a>
         </p>
 
         <hr>
 
         <!-- Preview Image -->
         <div class="embed-responsive embed-responsive-16by9">
-            {% video post_view.video '100x100' %}
+            {% video post_view.videos '100x100' %}
         </div>
         <hr>
         <!-- Post Content -->
         <p class="lead">
         <p></p>{{post_view.news_content}}
         </p>
-        <hr>
       </div>
     </div>
     <!-- /.row -->

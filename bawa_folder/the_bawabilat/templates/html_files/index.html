@@ -17,13 +17,13 @@
 				<div class="embed-responsive embed-responsive-16by9">
 					{% video i.video '100x100' %}
 				</div>
-				<h4 class="pt-20"><a href="#"><b>{{i.Description}} <br/></b></a></h4>
+				<h4 class="pt-20"><a href=""><b>{{i.Description}} <br/></b></a></h4>
 				<ul class="list-li-mr-20 pt-10 pb-20">
 					<li class="color-lite-black">By <a href="#" class="color-black"><b> {{i.Username}}</b></a>
 					<li><i class="color-primary mr-5 font-10 ion-ios-stopwatch-outline"></i><b>{{i.pub_date}}</b></li>
 				</ul>
-				<p>{{i.Description|safe|truncatewords:"8"|linebreaks }}
-					<a class="dplay-block btn-brdr-primary mt-8 mb-md-25" href="/Current-News/{{i.blog_slug}}"><b>READ MORE &rarr;</b></a>
+				<p>{{i.blog_content|safe|truncatewords:"10"|linebreaks }}
+					<a class="dplay-block btn-brdr-primary mt-10 mb-md-30" href="Current-News/{{i.blog_slug}}"><b>READ MORE &rarr;</b></a>
 				</p>
 				<br>
 			</div><!-- col-sm-6 -->
@@ -42,21 +42,21 @@
 						<div class="embed-responsive embed-responsive-16by9">
 							{% video i.videos '100x100' %}
 						</div>
-						<h4 class="pt-20"><a href="#"><b>{{i.news_title}} <br/></b></a></h4>
+						<h4 class="pt-20"><a href="Trending-News/{{i.news_slug}}"><b>{{i.news_title}} <br/></b></a></h4>
 						<ul class="list-li-mr-20 pt-10 pb-20">
 							<li class="color-lite-black">By <a href="#" class="color-black"><b> {{i.news_author}}</b></a>
-							<li><i class="color-primary mr-5 font-12 ion-ios-stopwatch-outline"></i><b>{{i.news_updated_on}}</b></li>
+							<li><i class="color-primary mr-5 font-12 ion-ios-stopwatch-outline"></i><b>{{i.created_on}}</b></li>
 						</ul>
 						<p>{{i.news_content|safe|truncatewords:"6"|linebreaks }}
-							<a class="dplay-block btn-brdr-primary mt-10 mb-md-30" href="/Trending-News/{{i.news_slug}}"><b>READ MORE &rarr;</b></a>
+							<a class="dplay-block btn-brdr-primary mt-10 mb-md-30" href="Trending-News/{{i.news_slug}}"><b>READ MORE &rarr;</b></a>
 						</p>
 						<br>
 					</div><!-- col-sm-6 -->
 					{% endfor %}
 				</div>
 				
-				<h4 class="p-title mt-30"><b>THEBAWABILAT  NEWS</b></h4>
-				<a class="dplay-block btn-brdr-primary mt-20 mb-md-50" href="#"><b>VIEW MORE NEWS</b></a>
+				<h4 class="p-title mt-30"><b>THEBAWABILAT NEWS</b></h4>
+				<a class="dplay-block btn-brdr-primary mt-20 mb-md-50" href="{%url 'video'%}"><b>VIEW MORE NEWS</b></a>
 			</div><!-- col-md-9 -->
 			<div class="d-none d-md-block d-lg-none col-md-3"></div>
 		</div><!-- row -->
