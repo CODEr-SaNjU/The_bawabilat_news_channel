@@ -1,5 +1,5 @@
 
-{% extends "html_files/main.html" %}
+{% extends "html_files/main1.htm" %}
 
 
 {% load static %}
@@ -19,7 +19,7 @@
 					<li class="color-lite-black">By <a href="#" class="color-black"><b> {{i.Username}}</b></a>
 					<li><i class="color-primary mr-5 font-10 ion-ios-stopwatch-outline"></i><b>{{i.pub_date}}</b></li>
 				</ul>
-				<p>{{i.Description|safe|truncatewords:"50"|linebreaks }}
+				<p>{{i.Description|safe|truncatewords:"40"|linebreaks }}
 					<a class="dplay-block btn-brdr-dark mt-10 mb-md-30" href="/{{i.blog_slug}}"><b>READ MORE &rarr;</b></a>
 				</p>
 				<br>
@@ -34,13 +34,13 @@
 				<div class="embed-responsive embed-responsive-16by9">
 					{% video i.videos '100x100' %}
 				</div>
-				<h4 class="pt-20"><a href="#"><b>{{i.Description}} <br/></b></a></h4>
+				<h4 class="pt-20"><a href="#"><b>{{i.news_title}} <br/></b></a></h4>
 				<ul class="list-li-mr-20 pt-10 pb-20">
-					<li class="color-lite-black">By <a href="#" class="color-black"><b> {{i.Username}}</b></a>
-					<li><i class="color-primary mr-5 font-10 ion-ios-stopwatch-outline"></i><b>{{i.pub_date}}</b></li>
+					<li class="color-lite-black">By <a href="#" class="color-black"><b> {{i.news_author}}</b></a>
+					<li><i class="color-primary mr-5 font-10 ion-ios-stopwatch-outline"></i><b>{{i.created_on}}</b></li>
 				</ul>
-				<p>{{i.Description|safe|truncatewords:"50"|linebreaks }}
-					<a class="dplay-block btn-brdr-dark mt-10 mb-md-30" href="/{{i.blog_slug}}"><b>READ MORE &rarr;</b></a>
+				<p>{{i.news_content|safe|truncatewords:"50"|linebreaks }}
+					<a class="dplay-block btn-brdr-dark mt-10 mb-md-30" href="/{{i.news_slug}}"><b>READ MORE &rarr;</b></a>
 				</p>
 				<br>
 			</div><!-- col-sm-6 -->

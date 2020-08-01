@@ -38,7 +38,7 @@ def world_wide(request):
     return render(request,'html_files/world_wide.htm',{"world_news":world_news})
 
 def events(request):
-    return render(request,'html_files/event.htm')
+    return render(request,'html_files/events.htm')
 
 def video(request):
     video = Newsupdate.objects.all()
@@ -48,3 +48,25 @@ def video(request):
 def newsdatafullview(request,news_slug):
     post_view = Post.objects.filter(news_slug=news_slug).first()
     return render(request,'html_files/News_full.htm',{"post_view":post_view})
+
+def header(request):
+    newsdata = Newsupdate.objects.all()
+    blog_data = Post.objects.all()
+    last_five = Newsupdate.objects.filter().order_by('-id')[:5]
+    last_five_in_ascending_order = reversed(last_five)
+    blogdata = Post.objects.filter().order_by('-id')[:5]
+    blogdata_last_five_in_ascending_order = reversed(blogdata)
+    print(blogdata,last_five)
+    return render(request,'html_files/header.htm',{'last_five':last_five,'blogdata':blogdata})
+
+
+
+def footer(request):
+    newsdata = Newsupdate.objects.all()
+    blog_data = Post.objects.all()
+    last_five = Newsupdate.objects.filter().order_by('-id')[:5]
+    last_five_in_ascending_order = reversed(last_five)
+    blogdata = Post.objects.filter().order_by('-id')[:5]
+    blogdata_last_five_in_ascending_order = reversed(blogdata)
+    print(blogdata,last_five)
+    return render(request,'html_files/footer.html',{'last_five':last_five,'blogdata':blogdata})
